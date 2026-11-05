@@ -1,0 +1,35 @@
+# Environment and secret files
+.env
+.env.*
+!.env.example
+
+# Database backups
+*.sql
+*.sql.gz
+*.bak
+*.backup
+
+# Logs
+*.log
+error_log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
+
+# Dependencies
+# Keep vendor/ if it contains required production dependencies.
+
+/config/database.local.php
+/vendor/
