@@ -3,11 +3,15 @@
 .env.*
 !.env.example
 
-# Database backups
+# Database backups (never publish backups)
 *.sql
 *.sql.gz
 *.bak
 *.backup
+
+# Allow the clean installation schema
+!/database/
+!/database/schema.sql
 
 # Logs
 *.log
