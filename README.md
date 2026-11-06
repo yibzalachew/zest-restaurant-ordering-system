@@ -65,6 +65,42 @@ The application does not request customers' banking PINs or OTP codes.
 
 ---
 
+## Screenshots
+
+The following screenshots show the main customer and administrator features of Zest.
+
+### 1. Homepage
+
+The main page where customers can explore the restaurant and available food.
+
+![Zest Restaurant Homepage](screenshots/homepage.png)
+
+### 2. Food Menu
+
+Customers can browse food items and explore available categories.
+
+![Food Menu](screenshots/food-menu.png)
+
+### 3. Shopping Cart
+
+Customers can review selected food items, update quantities, and check their subtotal.
+
+![Shopping Cart](screenshots/shopping-cart.png)
+
+### 4. Admin Dashboard
+
+Administrators can manage restaurant operations, orders, food items, and payments.
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+### 5. Reports
+
+The reporting section provides restaurant business information and report exports.
+
+![Reports Dashboard](screenshots/reports.png)
+
+---
+
 ## Technologies Used
 
 | Technology | Purpose |
@@ -113,6 +149,13 @@ restaurant-ordering-system/
 │   ├── auth.php
 │   ├── admin_helpers.php
 │   └── ...
+│
+├── screenshots/
+│   ├── homepage.png
+│   ├── food-menu.png
+│   ├── shopping-cart.png
+│   ├── admin-dashboard.png
+│   └── reports.png
 │
 ├── uploads/
 │   └── foods/
@@ -209,6 +252,7 @@ Add the following code:
 
 ```php
 <?php
+
 declare(strict_types=1);
 
 return [
@@ -270,6 +314,7 @@ Add:
 
 ```php
 <?php
+
 declare(strict_types=1);
 
 return 'YOUR_GENERATED_64_CHARACTER_KEY';
@@ -402,7 +447,8 @@ Possible future improvements include:
 
 **Yibzalachew Seifu Abite**
 
-Computer Science Graduate  
+Computer Science Graduate
+
 Hawassa, Ethiopia
 
 GitHub:
