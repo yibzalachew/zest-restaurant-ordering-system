@@ -36,4 +36,5 @@ desktop.ini
 # Keep vendor/ if it contains required production dependencies.
 
 /config/database.local.php
+/config/admin-setup.local.php
 /vendor/

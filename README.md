@@ -1,134 +1,211 @@
 
 # Zest Restaurant Ordering System
 
-A web-based restaurant ordering and management system built with PHP and MySQL. It allows customers to browse food items, add products to a shopping cart, place pickup or delivery orders, submit payment references, and track their orders.
+A web-based restaurant ordering and management system built with PHP, MySQL, HTML, CSS, and JavaScript.
 
-## Project Overview
+Zest allows customers to browse food items, add items to their shopping cart, place orders, submit payment information, and track their orders. Restaurant administrators can manage food items, categories, orders, payments, restaurant settings, and reports through an administration dashboard.
 
-Zest Restaurant Ordering System is designed to simplify restaurant ordering and daily operations through a responsive customer interface and an administrative dashboard.
-
-The application provides tools for managing food items, categories, orders, payments, restaurant settings, and business reports.
+---
 
 ## Features
 
 ### Customer Features
 
 - Browse available food items.
-- Search and filter food by category.
 - View food details and prices.
+- Browse food by category.
+- Search and filter food items.
 - Add food items to the shopping cart.
-- Update quantities and remove cart items.
-- Place pickup and delivery orders.
-- Submit payment references for manual verification.
+- Update item quantities.
+- Remove items from the cart.
+- Calculate order totals.
+- Choose pickup or delivery.
+- Submit customer and delivery information.
+- Submit payment references.
 - Track orders using an order number and phone number.
-- Responsive design for mobile and desktop devices.
+- Responsive interface for desktop, tablet, and mobile devices.
 
 ### Administrator Features
 
 - Secure administrator login.
-- Dashboard for restaurant management.
-- Manage food items and categories.
-- Manage customer orders.
-- Review and verify payment submissions.
+- Administrator dashboard.
+- Manage food categories.
+- Add, edit, and delete food items.
+- Upload food images.
+- Manage restaurant orders.
+- View customer information.
+- Verify submitted payments.
+- Update order statuses.
+- Manage payment methods.
 - Configure restaurant settings.
-- View restaurant reports.
-- Export reports to Excel and PDF.
+- View reports and summaries.
+- Export reports to Excel.
+- Print or save reports as PDF.
+
+### Payment Features
+
+The system supports manual payment verification through:
+
+- Telebirr
+- Commercial Bank of Ethiopia (CBE)
+
+Customers submit payment references, and administrators verify submitted payment information.
+
+The application does not request customers' banking PINs or OTP codes.
+
+### Reporting Features
+
+- Order reports.
+- Sales summaries.
+- Payment reports.
+- Food and category information.
+- Date-based report filtering.
+- Excel report export.
+- Print-friendly reports for PDF saving.
+
+---
 
 ## Technologies Used
 
-- PHP 8+
-- MySQL / MariaDB
-- HTML5
-- CSS3
-- JavaScript
-- PDO
-- Composer
-- PhpSpreadsheet
+| Technology | Purpose |
+|---|---|
+| HTML5 | Website structure |
+| CSS3 | Website styling and responsive design |
+| JavaScript | Client-side functionality |
+| PHP | Backend development |
+| MySQL / MariaDB | Database management |
+| PDO | Secure database access |
+| Composer | PHP dependency management |
+| PhpSpreadsheet | Excel report generation |
+| Git | Version control |
+| GitHub | Source code hosting |
+| XAMPP | Local development environment |
+
+---
 
 ## Project Structure
 
 ```text
-zest-restaurant-ordering-system/
+restaurant-ordering-system/
+│
 ├── admin/
-│   ├── categories/
-│   ├── foods/
-│   ├── orders/
-│   ├── payments/
-│   └── reports/
+│   ├── dashboard.php
+│   ├── login.php
+│   ├── create_admin.php
+│   └── ...
+│
 ├── assets/
 │   ├── css/
-│   ├── images/
-│   └── js/
+│   │   ├── style.css
+│   │   └── admin.css
+│   ├── js/
+│   └── images/
+│
 ├── config/
+│   ├── database.php
+│   ├── database.local.php
+│   └── .htaccess
+│
 ├── database/
 │   └── schema.sql
+│
 ├── includes/
+│   ├── auth.php
+│   ├── admin_helpers.php
+│   └── ...
+│
 ├── uploads/
 │   └── foods/
-├── cart.php
-├── checkout.php
-├── index.php
-├── payment.php
-├── order_success.php
-├── track-order.php
+│
+├── vendor/
+│
 ├── composer.json
+├── composer.lock
+├── .gitignore
+├── .htaccess
 └── README.md
 ```
 
-## Installation and Setup
+The structure above is representative. Some additional project files and folders are omitted for readability.
 
-### Requirements
+---
 
-- XAMPP
-- PHP 8.0 or later
-- MySQL or MariaDB
-- Composer
-- Git (optional)
-- Web browser
+## Requirements
+
+Before installing the application, make sure you have:
+
+- PHP 8.0 or later.
+- MySQL or MariaDB.
+- Apache web server.
+- Composer.
+- Git (optional).
+
+For local development, XAMPP is recommended.
+
+---
+
+## Installation Guide
+
+Follow these instructions to install the application on a local computer.
 
 ### 1. Clone the Repository
 
-Open a terminal and run:
+Open your terminal and run:
 
 ```bash
 git clone https://github.com/yibzalachew/zest-restaurant-ordering-system.git
 ```
 
-Move the project folder into your XAMPP `htdocs` directory.
+Move into the project directory:
 
-### 2. Start XAMPP
-
-1. Open the XAMPP Control Panel.
-2. Start Apache.
-3. Start MySQL.
-
-### 3. Create the Database
-
-1. Open `http://localhost/phpmyadmin`.
-2. Create a database named:
-
-```text
-restaurant_ordering_system
+```bash
+cd zest-restaurant-ordering-system
 ```
 
-3. Select the newly created database.
-4. Click the **Import** tab.
-5. Choose `database/schema.sql` from the project folder.
-6. Click **Import** or **Go**.
+Alternatively, download the repository as a ZIP file and extract it into your web server directory.
 
-The SQL installation script creates the database tables, primary keys, indexes, and relationships.
-
-**Important:** The schema file contains database structure only. It does not include existing customer records, orders, payment records, administrator accounts, or private payment information.
-
-### 4. Configure Database Connection
-
-Create a file named:
+For XAMPP, the directory is usually:
 
 ```text
-config/database.local.php
+C:\xampp\htdocs\
 ```
 
-Add your local database credentials:
+The final project path should be:
+
+```text
+C:\xampp\htdocs\restaurant-ordering-system
+```
+
+### 2. Create the Database
+
+1. Start Apache and MySQL from XAMPP Control Panel.
+2. Open phpMyAdmin:
+
+   `http://localhost/phpmyadmin`
+
+3. Create a database named:
+
+   `restaurant_ordering_system`
+
+4. Select the new database.
+5. Open the Import tab.
+6. Select:
+
+   `database/schema.sql`
+
+7. Click Import.
+
+The schema file creates the required database tables and relationships.
+
+**Important:** The database schema contains the database structure only. It does not include existing customer records, orders, administrator accounts, or private payment information.
+
+### 3. Configure the Database Connection
+
+Create this local configuration file:
+
+`config/database.local.php`
+
+Add the following code:
 
 ```php
 <?php
@@ -142,109 +219,208 @@ return [
 ];
 ```
 
-Update the username and password if your MySQL configuration is different.
+Change the database username and password if your MySQL installation uses different credentials.
 
-**Security:** Never publish `config/database.local.php` or real database credentials.
+This local configuration file is excluded from Git to protect database credentials.
 
-### 5. Install Composer Dependencies
+For production hosting, configure the database environment variables instead:
 
-Open a terminal in the project directory and run:
+- `DB_HOST`
+- `DB_NAME`
+- `DB_USER`
+- `DB_PASSWORD`
+
+Do not use the XAMPP root database account for a public production website. Create a dedicated database user with only the permissions the application needs.
+
+### 4. Install PHP Dependencies
+
+Open the terminal inside the project directory and run:
 
 ```bash
 composer install
 ```
 
-This installs the dependencies required by the application.
+Composer installs the required PHP libraries.
 
-### 6. Initial Application Setup
+Make sure the `vendor` directory is available after installation.
 
-The database schema does not automatically create an administrator account or populate restaurant data.
+### 5. Create the First Administrator
 
-Before using the application, configure:
+A fresh installation does not contain an administrator account.
 
-- A secure administrator account.
-- Food categories.
-- Food items and their images.
-- Restaurant settings.
-- Payment methods and account details.
+You must create the first administrator before accessing the administration dashboard.
 
-Use secure credentials and verify all settings before accepting real customer orders.
+#### Generate a private setup key
 
-### 7. Run the Application
+Run this command from the project directory:
 
-Open your browser and visit:
-
-```text
-http://localhost/restaurant-ordering-system/
+```bash
+php -r "echo bin2hex(random_bytes(32)), PHP_EOL;"
 ```
 
-The application should now be accessible locally after the initial setup is complete.
+PHP generates a random 64-character hexadecimal key.
+
+#### Create the private setup configuration file
+
+Create:
+
+`config/admin-setup.local.php`
+
+Add:
+
+```php
+<?php
+declare(strict_types=1);
+
+return 'YOUR_GENERATED_64_CHARACTER_KEY';
+```
+
+Replace the placeholder with the key generated in the previous step.
+
+Never publish this key or commit the file to GitHub.
+
+#### Open the administrator setup page
+
+For a local XAMPP installation, visit:
+
+`http://localhost/restaurant-ordering-system/admin/create_admin.php`
+
+For production, use your actual website address.
+
+Enter:
+
+- Full name.
+- Username.
+- Strong password.
+- Password confirmation.
+- Private setup key.
+
+Submit the form to create the first administrator.
+
+#### Remove the private setup key
+
+After the administrator is successfully created, immediately delete:
+
+`config/admin-setup.local.php`
+
+The setup page will no longer allow another administrator to be created through the first-administrator setup process once an administrator account exists.
+
+The setup key file is excluded through `.gitignore`.
+
+### 6. Access the Application
+
+Open the customer website:
+
+`http://localhost/restaurant-ordering-system/`
+
+Open the administrator login page:
+
+`http://localhost/restaurant-ordering-system/admin/login.php`
+
+Log in using the administrator credentials created during the first-administrator setup.
+
+---
 
 ## Security Features
 
+The application includes several security measures:
+
+- Password hashing using PHP `password_hash()`.
+- Password verification using `password_verify()`.
 - PDO prepared statements.
-- CSRF protection.
-- Secure session handling.
-- Login attempt protection.
+- CSRF protection for sensitive requests.
+- Session security settings.
+- Administrator authentication and authorization.
+- Login attempt rate limiting.
 - Input validation.
-- Output escaping.
-- Protected configuration and internal directories.
-- Upload directory script-execution protection.
-- Payment verification without collecting payment PINs or OTPs.
-- Database credentials excluded from the public repository.
+- Output escaping to help prevent XSS.
+- Protection against duplicate payment submissions.
+- Restricted access to configuration and private files.
+- Upload restrictions for food images.
+- Private local configuration files excluded from Git.
+- First-administrator setup protected by a private setup key.
+
+Security must also be configured correctly on the production hosting server.
+
+---
 
 ## Testing
 
-The application has been tested locally, including:
+The application has been tested locally using XAMPP.
 
-- Customer browsing and food search.
+Testing includes:
+
+- Customer food browsing.
+- Food search and category filtering.
 - Shopping cart operations.
 - Pickup and delivery checkout.
-- Payment reference submission and verification.
+- Payment reference submission.
+- Payment verification.
+- Order management.
 - Order tracking.
-- Administrator operations.
-- Reports and data accuracy.
-- Excel and PDF report exports.
+- Administrator authentication.
+- Dashboard functionality.
+- Reports and report filtering.
+- Excel export.
 - Mobile responsiveness.
-- Security checks and browser compatibility.
+- Database operations.
+- Basic security checks.
 
-## Screenshots
+The first-administrator creation process has also been tested using a separate test database.
 
-Screenshots of the following application pages will be added:
-
-- Customer homepage.
-- Food menu.
-- Shopping cart.
-- Checkout page.
-- Order tracking.
-- Administrator dashboard.
-- Reports dashboard.
+---
 
 ## Project Status
 
-The main customer ordering workflow, administration features, reporting, and local testing have been completed.
+<details>
+<summary>Current development status</summary>
 
-The project is published on GitHub for portfolio and demonstration purposes.
+The main customer ordering workflow and administrator management functionality have been implemented and tested locally.
+
+The project is prepared for further improvements and production deployment.
+
+</details>
+
+---
 
 ## Future Improvements
 
-- Online hosting and deployment.
-- Automated payment gateway integration.
-- Email and SMS order notifications.
-- Additional analytics and reporting.
-- Improved production deployment configuration.
-- Automated database installation and initial administrator setup.
+Possible future improvements include:
+
+- Online payment gateway integration.
+- Customer accounts and order history.
+- Email and SMS notifications.
+- Advanced inventory management.
+- Real-time order notifications.
+- Improved analytics.
+- Progressive Web App (PWA) support.
+- Cloud deployment and production optimization.
+
+---
 
 ## Author
 
 **Yibzalachew Seifu Abite**
 
-Computer Science Graduate
+Computer Science Graduate  
+Hawassa, Ethiopia
 
-GitHub: https://github.com/yibzalachew
+GitHub:
 
-Project Repository: https://github.com/yibzalachew/zest-restaurant-ordering-system
+https://github.com/yibzalachew
+
+---
+
+## Repository
+
+Source code:
+
+https://github.com/yibzalachew/zest-restaurant-ordering-system
+
+---
 
 ## License
 
-This project is currently available for portfolio and demonstration purposes. No formal open-source license has been selected.
+This project is available for educational and portfolio purposes.
+
+Review the applicable licensing terms before redistributing or using the project commercially.
